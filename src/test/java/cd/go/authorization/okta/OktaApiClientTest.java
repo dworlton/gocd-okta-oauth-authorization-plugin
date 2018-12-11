@@ -72,7 +72,7 @@ public class OktaApiClientTest {
     public void shouldReturnAuthorizationServerUrl() throws Exception {
         final String authorizationServerUrl = oktaApiClient.authorizationServerUrl("call-back-url");
 
-        assertThat(authorizationServerUrl, startsWith("https://example.com/v1/authorize?client_id=client-id&redirect_uri=call-back-url&response_type=code&scope=openid%20profile%20email%20groups&state="));
+        assertThat(authorizationServerUrl, startsWith("https://example.com/v1/authorize?client_id=client-id&redirect_uri=call-back-url&response_type=code&scope=openid%20profile%20email&state="));
     }
 
     @Test

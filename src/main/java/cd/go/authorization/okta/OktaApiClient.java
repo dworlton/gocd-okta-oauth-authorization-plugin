@@ -67,7 +67,7 @@ public class OktaApiClient {
                 .addQueryParameter("client_id", oktaConfiguration.clientId())
                 .addQueryParameter("redirect_uri", callbackUrl)
                 .addQueryParameter("response_type", "code")
-                .addQueryParameter("scope", "openid profile email groups")
+                .addQueryParameter("scope", "openid profile email")
                 .addQueryParameter("state", UUID.randomUUID().toString())
                 .addQueryParameter("nonce", UUID.randomUUID().toString())
                 .build().toString();
