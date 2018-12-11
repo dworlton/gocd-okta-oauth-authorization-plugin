@@ -29,7 +29,7 @@ import static cd.go.authorization.okta.utils.Util.GSON;
 
 public class GetAuthorizationServerUrlRequestExecutor implements RequestExecutor {
     private final GetAuthorizationServerUrlRequest request;
-    public static final Logger LOG = Logger.getLoggerFor(OktaPlugin.class);
+    public static final Logger LOG = Logger.getLoggerFor(GetAuthorizationServerUrlRequestExecutor.class);
 
     public GetAuthorizationServerUrlRequestExecutor(GetAuthorizationServerUrlRequest request) {
         this.request = request;
