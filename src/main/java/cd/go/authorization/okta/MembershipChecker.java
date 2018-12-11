@@ -44,6 +44,7 @@ public class MembershipChecker {
                 return true;
             }
         }
+        LOG.debug("[MembershipChecker] Not groups provided");
 
         return false;
     }

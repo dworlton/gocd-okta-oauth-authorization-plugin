@@ -43,6 +43,7 @@ public class OktaPlugin implements GoPlugin {
 
     @Override
     public GoPluginApiResponse handle(GoPluginApiRequest request) throws UnhandledRequestTypeException {
+        LOG.debug("Received request: " + RequestFromServer.fromString(request.requestName()));
         try {
             switch (RequestFromServer.fromString(request.requestName())) {
                 case REQUEST_GET_PLUGIN_ICON:
