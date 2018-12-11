@@ -34,6 +34,7 @@ public class OktaApiClient {
     private static final String API_ERROR_MSG = "Api call to `{0}` failed with error: `{1}`";
     private final OktaConfiguration oktaConfiguration;
     private final OkHttpClient httpClient;
+    private static final Gson GSON = new Gson();
 
     public OktaApiClient(OktaConfiguration oktaConfiguration) {
         this(oktaConfiguration,
@@ -71,6 +72,9 @@ public class OktaApiClient {
     }
 
     public TokenInfo fetchAccessToken(Map<String, String> params) throws Exception {
+        string json = GSON.toJson(params);
+        LOG.debug("[OktaApiClient] - fetchAccessToken");
+        LOG.debug(json);
         final String code = params.get("code");
         if (Util.isBlank(code)) {
             throw new RuntimeException("[OktaApiClient] Authorization code must not be null.");

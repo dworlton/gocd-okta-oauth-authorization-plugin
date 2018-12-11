@@ -21,6 +21,7 @@ import cd.go.authorization.okta.exceptions.NoAuthorizationConfigurationException
 import cd.go.authorization.okta.requests.GetAuthorizationServerUrlRequest;
 import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
+import com.thoughtworks.go.plugin.api.logging.Logger;
 
 import java.util.Collections;
 
@@ -28,6 +29,7 @@ import static cd.go.authorization.okta.utils.Util.GSON;
 
 public class GetAuthorizationServerUrlRequestExecutor implements RequestExecutor {
     private final GetAuthorizationServerUrlRequest request;
+    public static final Logger LOG = Logger.getLoggerFor(OktaPlugin.class);
 
     public GetAuthorizationServerUrlRequestExecutor(GetAuthorizationServerUrlRequest request) {
         this.request = request;
@@ -40,6 +42,7 @@ public class GetAuthorizationServerUrlRequestExecutor implements RequestExecutor
 
         final OktaApiClient oktaApiClient = request.authConfigs().get(0).getConfiguration().oktaApiClient();
 
+        LOG.debug("[GetAuthorizationServerUrlRequestExecutor] " + GSON.toJson(Collections.singletonMap("authorization_server_url", oktaApiClient.authorizationServerUrl(request.callbackUrl()))));
         return DefaultGoPluginApiResponse.success(GSON.toJson(Collections.singletonMap("authorization_server_url", oktaApiClient.authorizationServerUrl(request.callbackUrl()))));
     }
 }
