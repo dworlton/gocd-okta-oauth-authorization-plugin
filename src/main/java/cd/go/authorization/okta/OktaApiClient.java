@@ -72,7 +72,7 @@ public class OktaApiClient {
     }
 
     public TokenInfo fetchAccessToken(Map<String, String> params) throws Exception {
-        string json = GSON.toJson(params);
+        String json = GSON.toJson(params);
         LOG.debug("[OktaApiClient] - fetchAccessToken");
         LOG.debug(json);
         final String code = params.get("code");
