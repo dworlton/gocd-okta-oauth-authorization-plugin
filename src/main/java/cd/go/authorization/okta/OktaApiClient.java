@@ -30,6 +30,8 @@ import static cd.go.authorization.okta.OktaPlugin.LOG;
 import static cd.go.authorization.okta.utils.Util.isNotBlank;
 import static java.text.MessageFormat.format;
 
+import com.google.gson.Gson;
+
 public class OktaApiClient {
     private static final String API_ERROR_MSG = "Api call to `{0}` failed with error: `{1}`";
     private final OktaConfiguration oktaConfiguration;
